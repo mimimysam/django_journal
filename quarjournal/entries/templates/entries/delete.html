@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+.header {
+  width: 60%;
+  height: 120px;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 5px solid gray;
+  box-sizing: border-box;
+}
+
+.topnav {
+  overflow: hidden;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.card {
+  width: 60%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 5px solid gray;
+  box-sizing: border-box;
+}
+
+#block {
+  background-color: #fff9f5;
+}
+
+</style>
+
+<head>
+    <div class="header" id="block">
+        <h1>Delete Entry</h1>
+    </div>
+    <div class="topnav" id="block">
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+</head>
+
+<body>
+
+    <section class="card" id="block">
+        <div class="container">
+
+            <p>Are you sure you want to delete this entry?</p>
+            <h2>{{ entry.title }}</h2>
+            <p>{{ entry.text }}</p>
+
+            <a href="{% url 'home' %}">Cancel</a>
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="submit" name="Confirm">
+            </form>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+    </footer>
+
+</body>
+
+</html>
+
